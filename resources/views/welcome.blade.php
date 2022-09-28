@@ -47,8 +47,16 @@
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
+                        <div>
+                            <h1>Aloware</h1>
+                        </div>
+                        <div >
+                            <h2 class="">Test Project: Fernando Menezes</h2>
+                        </div>
                         <div class="flex items-center">
-                            <h1>Aloware - Fernando Test</h1>
+                            <a href="{{ route('blog') }}" class="ml-1 underline">
+                                Visit our blog
+                            </a>
                         </div>
                     </div>
 
