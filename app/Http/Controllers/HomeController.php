@@ -13,4 +13,15 @@ class HomeController extends Controller
 
         return view('home', compact('posts'));
     }
+
+    public function post($slug){
+
+        $post = DB::table('posts')->where('slug', $slug)->first();
+
+        if($post == null){
+            return abort(404);
+        }
+
+        return view('post', compact('post'));
+    }
 }
