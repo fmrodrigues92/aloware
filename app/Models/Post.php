@@ -17,4 +17,8 @@ class Post extends Model
         'content',
         'image_background'
     ];
+
+    public function comments(){
+        return $this->hasMany('App\Models\Comment');
+    }
 }

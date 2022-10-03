@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center pb-5 mb-5 ">
         <div class="col-10">
 
             <h1>{{ $post->title }}</h1>
@@ -25,24 +25,32 @@
                 <div class="col-12">
                     <h2>Comments</h2>
 
-                    <form action="" method="POST">
-                        <div class="mb-3">
-                              <label for="name-field" class="form-label">Name</label>
-                              <input type="email" class="form-control" id="name-field" name="name">
-                        </div>
-                        <div class="mb-3">
-                              <label for="comment" class="form-label">Comment</label>
-                              <textarea class="form-control" name="comment" id="comment"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    @include('helpers.form')
 
                 </div>
             </div>
+
+            {{-- <div class="row mt-4">
+                <div class="col-12">
+                    <hr>
+                </div>
+            </div> --}}
+
+            <div class="row mt-4">
+                    
+                @include('helpers.comments', ['comments' => $comments])
+                    
+            </div>
+
         </div>
     </div>
 
-
+    <script>
+        function appendComment(className){
+            let el = document.getElementsByClassName(className);
+            el[0].classList.remove('d-none')
+        }
+    </script>
     
 
 @endsection
