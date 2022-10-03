@@ -50,6 +50,7 @@
             let el = document.getElementsByClassName(className);
             el[0].classList.remove('d-none')
         }
+        
     </script>
     
 
