@@ -69,7 +69,12 @@ class PostController extends Controller
             if($check->parent_id == null){
                 $pid = $validated['parent_id'];
             }else{
-                $pid = $check->parent_id;
+                $check2 = DB::query()->from('comments')->where('id', $check->parent_id)->first();
+                if($check2->parent_id == null){
+                    $pid = $validated['parent_id'];
+                }else{
+                    $pid = $check->parent_id;
+                }
             }
         }else{
             $pid = null;
@@ -86,4 +91,10 @@ class PostController extends Controller
             return redirect()->back()->withErrors('Ops, There is a problem');
         }
     }
+
+    public function deleteComment(Request $request){
+        // dd($request->all());
+        DB::query()->from('comments')->where('id', $request->comment_id)->delete();
+        return redirect()->back();
+    }   
 }
